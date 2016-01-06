@@ -5,7 +5,8 @@
  *      Author: raydelto
  */
 #include <iostream>
-#include "Queue.h"
+
+#include "Stack.h"
 using namespace std;
 int main()
 {
@@ -13,18 +14,18 @@ int main()
 	Element* susan = new Element("Susan");
 	Element* ray = new Element("Ray");
 	Element* mike = new Element("Mike");
-	Queue* queue = new Queue();
-	queue->enqueue(mike);
-	queue->enqueue(jules);
-	queue->enqueue(susan);
-	queue->enqueue(ray);
+	Stack* stack = new Stack();
+	stack->push(mike);
+	stack->push(jules);
+	stack->push(susan);
+	stack->push(ray);
 
 
-	Element* i = queue->dequeue();
+	Element* i = stack->pop();
 	while(i != NULL)
 	{
 		cout << i -> getName() << endl;
-		i = queue->dequeue();
+		i = stack->pop();
 	}
 
 

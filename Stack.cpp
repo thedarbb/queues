@@ -5,17 +5,17 @@
  *      Author: raydelto
  */
 
-#include "Queue.h"
+#include "Stack.h"
 
-Queue::Queue() : _first(NULL),_last(NULL)
+Stack::Stack() : _first(NULL),_last(NULL)
 {
 
 
 }
 
-void Queue::enqueue(Element *element)
+void Stack::push(Element *element)
 {
-	if(_first == NULL) // the queue is empty
+	if(_last == NULL) // the queue is empty
 	{
 		_first = element;
 		_last = element;
@@ -26,18 +26,18 @@ void Queue::enqueue(Element *element)
 	}
 }
 
-Element *Queue::dequeue()
+Element *Stack::pop()
 {
-	if(_first == NULL)
+	if(_last == NULL)
 	{
 		return NULL;
 	}
-	Element* temp = _first;
-	_first = _first -> _next;
+	Element* temp = _last;
+	_last = _last -> _next;
 	return temp;
 
 }
 
-Queue::~Queue() {
+Stack::~Stack() {
 	// TODO Auto-generated destructor stub
 }

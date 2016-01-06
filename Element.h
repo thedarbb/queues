@@ -13,13 +13,13 @@ class Element
 {
 private:
 	std::string _name;
-	Element* _next;
 
 public:
 	Element(std::string name);
 	virtual ~Element();
     std::string getName();
 	friend class Queue;
+	Element* _next;
 };
 
 #endif /* ELEMENT_H_ */
