@@ -12,7 +12,6 @@ class Stack
 {
 private:
 	Element* _first;
-	Element* _last;
 
 public:
 	void push(Element* element);
