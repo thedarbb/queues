@@ -2,36 +2,38 @@
  * main.cpp
  *
  *  Created on: Jan 6, 2016
- *      Author: raydelto
+ *      Author: thedarbb
  */
-#include <iostream>
-
 #include "Stack.h"
+#include <iostream>
+#include <string>
 using namespace std;
-int main()
-{
-	Element* d = new Element("D");
-	Element* c = new Element("C");
-	Element* b = new Element("B");
-	Element* a = new Element("A");
-	Element* f = new Element("F");
-	Element* e = new Element("E");
-	Stack* stack = new Stack();
 
-	stack->push(a);
-	stack->push(d);
-	stack->push(f);
-	stack->push(b);
-	stack->push(c);
-	stack->push(e);
+string expression;
+Stack* stack = new Stack();
 
+void parse(){
+	cout << "Enter a mathematical expression 'eg: (3+3)' :" << endl;
+	cin >> expression;
+	cout << "\n";
 
-	Element* i = stack->pop();
-	while(i != NULL)
-	{
-		cout << i -> getName() << endl;
-		i = stack->pop();
+	for (int i = 0; i < expression.size();  i++) {
+		Element* data = new Element(expression);
+		if((expression[i] == '(' || expression[i] == '[') && (expression[i] == ')' || expression[i] == ']' )){
+		stack->push(data);
+		}
 	}
+}
 
+void stackFunc(){
+	Element* i = stack->pop();
+	cout << i->getName() << endl;
+	i = stack->pop();
+}
+
+int main() {
+
+	parse();
+	stackFunc();
 
 }
