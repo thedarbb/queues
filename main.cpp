@@ -16,11 +16,11 @@ void parse(){
 	cout << "Enter a mathematical expression 'eg: (3+3)' :" << endl;
 	cin >> expression;
 	cout << "\n";
-
+	char lst = *expression.rbegin();
 	for (int i = 0; i < expression.size();  i++) {
 		Element* data = new Element(expression);
-		if((expression[i] == '(' || expression[i] == '[') && (expression[i] == ')' || expression[i] == ']' )){
-		stack->push(data);
+		if((expression[i] == '(' || expression[i] == '[') && (lst == ')' || lst == ']')){
+			stack->push(data);
 		}
 	}
 }
