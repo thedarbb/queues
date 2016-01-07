@@ -7,7 +7,7 @@
 
 #include "Stack.h"
 
-Stack::Stack() : _first(NULL)
+Stack::Stack() : _last(NULL)
 {
 
 
@@ -15,26 +15,25 @@ Stack::Stack() : _first(NULL)
 
 void Stack::push(Element *element)
 {
-	if(_first == NULL) // the queue is empty
+	if(_last == NULL) // the queue is empty
 	{
-		_first = element;
+		_last = element;
 
 	}else //if the queue is not empty
 	{
-		Element* temp = _first;
-		_first = element;
-		_first -> _next = temp;
+		element -> _next = _last;
+		_last = element;
 	}
 }
 
 Element *Stack::pop()
 {
-	if(_first == NULL)
+	if(_last == NULL)
 	{
 		return NULL;
 	}
-	Element* temp = _first;
-	_first = _first -> _next;
+	Element* temp = _last;
+	_last = _last -> _next;
 	return temp;
 
 }

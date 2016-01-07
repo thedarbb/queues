@@ -14,12 +14,16 @@ int main()
 	Element* c = new Element("C");
 	Element* b = new Element("B");
 	Element* a = new Element("A");
+	Element* f = new Element("F");
+	Element* e = new Element("E");
 	Stack* stack = new Stack();
 
 	stack->push(a);
 	stack->push(d);
+	stack->push(f);
 	stack->push(b);
 	stack->push(c);
+	stack->push(e);
 
 
 	Element* i = stack->pop();
