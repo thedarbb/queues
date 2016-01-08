@@ -4,38 +4,53 @@
  *  Created on: Jan 6, 2016
  *      Author: thedarbb
  */
-#include "Stack.h"
+#include "Parser.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
 string expression;
-Stack* stack = new Stack();
+//Stack* stack = new Stack();
 
-void parse(){
-	cout << "Enter a mathematical expression 'eg: (3+3)' :" << endl;
+int main(){
+	Parser *parser = new Parser();
+	string expression;
+	cout << "Please enter the expression you would like to parse: " << endl;
 	cin >> expression;
-	cout << "\n";
-	char lst = *expression.rbegin();
-	for (int i = 0; i < expression.size();  i++) {
-		Element* data = new Element(expression);
-		if((expression[i] == '(') && (lst == ')')){
-			stack->push(data);
-		} else if ((expression[i] == '[') && (lst == ']')){
-			stack->push(data);
-		}
+	if(parser ->parse(expression) == true)
+	{
+		cout << expression << " is a valid expression" << endl;
+	}else
+	{
+		cout << expression << " is NOT a valid expression" << endl;
 	}
+	return 0;
 }
 
-void stackFunc(){
-	Element* i = stack->pop();
-	cout << i->getName() << endl;
-	i = stack->pop();
-}
-
-int main() {
-
-	parse();
-	stackFunc();
-
-}
+//void parse(){
+//	cout << "Enter a mathematical expression 'eg: (3+3)' :" << endl;
+//	cin >> expression;
+//	cout << "\n";
+//	char lst = *expression.rbegin();
+//	for (int i = 0; i < expression.size();  i++) {
+//		Element* data = new Element(expression);
+//		if((expression[i] == '(') && (lst == ')')){
+//			stack->push(data);
+//		} else if ((expression[i] == '[') && (lst == ']')){
+//			stack->push(data);
+//		}
+//	}
+//}
+//
+//void stackFunc(){
+//	Element* i = stack->pop();
+//	cout << i->getName() << endl;
+//	i = stack->pop();
+//}
+//
+//int main() {
+//
+//	parse();
+//	stackFunc();
+//
+//}
