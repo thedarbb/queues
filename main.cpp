@@ -19,7 +19,9 @@ void parse(){
 	char lst = *expression.rbegin();
 	for (int i = 0; i < expression.size();  i++) {
 		Element* data = new Element(expression);
-		if((expression[i] == '(' || expression[i] == '[') && (lst == ')' || lst == ']')){
+		if((expression[i] == '(') && (lst == ')')){
+			stack->push(data);
+		} else if ((expression[i] == '[') && (lst == ']')){
 			stack->push(data);
 		}
 	}
